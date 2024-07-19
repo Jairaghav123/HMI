@@ -1,4 +1,4 @@
-# flutter_homescreen
+# flutter_ics_homescreen
 
 A new Flutter project.
 

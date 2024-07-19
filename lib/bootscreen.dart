@@ -1,8 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/screen1.dart';
-import 'package:flutter_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/screen1.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
 
 class BootScreen extends StatefulWidget {
   const BootScreen({super.key});
@@ -78,14 +78,14 @@ class _BootScreenState extends State<BootScreen> with SingleTickerProviderStateM
                  children: [
                    Padding(
                      padding: EdgeInsets.all(8.0),
-                     child: Text("Knemetic solutions",style: TextStyle(fontSize:33,fontWeight:FontWeight.normal,color:Colors.white),),
+                     child: Text("Knemetic solutions",style: TextStyle(fontSize:30,fontWeight:FontWeight.normal,color:Colors.white),),
                    ),
 
 
                    Padding(
                      padding: EdgeInsets.all(8.0),
                      child: Text("Copyright © 2024 knemetic solutions. All rights reserved Version 1.0.0 "
-                       ,style: TextStyle(fontSize:33,fontWeight:FontWeight.normal,color:Colors.white),),
+                       ,style: TextStyle(fontSize:20,fontWeight:FontWeight.normal,color:Colors.white),),
                    ),
                  ],
                )),
@@ -104,7 +104,7 @@ class _BootScreenState extends State<BootScreen> with SingleTickerProviderStateM
                      child: AnimatedBuilder(
                        animation: _animation,
                        builder: (context, child) {
-                         return const Text("Booting ... Please wait ",style:TextStyle(fontSize:33,fontWeight:FontWeight.normal,color:Colors.white),) ;
+                         return const Text("Booting ... Please wait ",style:TextStyle(fontSize:20,fontWeight:FontWeight.normal,color:Colors.white),) ;
 
                        },
 

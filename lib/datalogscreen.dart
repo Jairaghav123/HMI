@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/resultscreenwidget.dart';
-import 'package:flutter_homescreen/screen1.dart';
-import 'package:flutter_homescreen/screen2.dart';
-import 'package:flutter_homescreen/screensize.dart';
-import 'package:flutter_homescreen/viewdatalogscreen.dart';
+import 'package:flutter_ics_homescreen/resultscreenwidget.dart';
+import 'package:flutter_ics_homescreen/screen1.dart';
+import 'package:flutter_ics_homescreen/screen2.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/viewdatalogscreen.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';

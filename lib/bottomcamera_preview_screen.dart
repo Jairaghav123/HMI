@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/screen1.dart';
-import 'package:flutter_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/screen1.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
 
 import 'Data/variables/variables.dart';
 

@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/Data/variables/variables.dart';
-import 'package:flutter_homescreen/screensize.dart';
-import 'package:flutter_homescreen/tray2alaysisscreen.dart';
+import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/tray2alaysisscreen.dart';
 import 'package:intl/intl.dart';
 
 

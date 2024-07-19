@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/Data/variables/variables.dart';
-import 'package:flutter_homescreen/screen2.dart';
-import 'package:flutter_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
+import 'package:flutter_ics_homescreen/screen2.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
 
 
-import 'package:flutter_homescreen/sliderscreen3.dart';
+import 'package:flutter_ics_homescreen/sliderscreen3.dart';
 import 'package:intl/intl.dart';
 
 import 'color_seeting_button_widget.dart';

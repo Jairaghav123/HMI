@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/Data/app_data.dart';
-import 'package:flutter_homescreen/Data/variables/variables.dart';
-import 'package:flutter_homescreen/resultscreenwidget.dart';
-import 'package:flutter_homescreen/screen1.dart';
-import 'package:flutter_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/Data/app_data.dart';
+import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
+import 'package:flutter_ics_homescreen/resultscreenwidget.dart';
+import 'package:flutter_ics_homescreen/screen1.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

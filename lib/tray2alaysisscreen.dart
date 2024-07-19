@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/screensize.dart';
-import 'package:flutter_homescreen/tray3analysisscreen.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/tray3analysisscreen.dart';
 import 'package:intl/intl.dart';
 
 import 'Data/variables/variables.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_homescreen/bottomcamera_preview_screen.dart';
-import 'package:flutter_homescreen/screen2.dart';
-import 'package:flutter_homescreen/screensize.dart';
-import 'package:flutter_homescreen/startAnalysisscreen.dart';
-import 'package:flutter_homescreen/topcamera_preview_screen.dart';
+import 'package:flutter_ics_homescreen/bottomcamera_preview_screen.dart';
+import 'package:flutter_ics_homescreen/screen2.dart';
+import 'package:flutter_ics_homescreen/screensize.dart';
+import 'package:flutter_ics_homescreen/startAnalysisscreen.dart';
+import 'package:flutter_ics_homescreen/topcamera_preview_screen.dart';
 import 'package:intl/intl.dart';
 
 import 'Data/variables/variables.dart';
