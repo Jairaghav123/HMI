@@ -24,7 +24,7 @@ import 'bootscreen.dart';
 import 'bottomcamera_preview_screen.dart';
 import 'datalogscreen.dart';
 
-void main () async
+void main () 
 {
 
 
