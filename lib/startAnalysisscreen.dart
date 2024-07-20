@@ -202,7 +202,7 @@ class _StartAnalysisState extends State<StartAnalysis> {
               ],
             ),
 
-            const SizedBox(height: 50,),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -211,6 +211,7 @@ class _StartAnalysisState extends State<StartAnalysis> {
                   height:screenHeight*.1,
                   width: screenWidth*0.15,
                   decoration: BoxDecoration(
+
                     borderRadius: BorderRadius.circular(20), // Adjust the value as needed
                   ),
                   child: Padding(
@@ -260,10 +261,10 @@ class _StartAnalysisState extends State<StartAnalysis> {
                 )
               ],
             ),
-           // const Spacer(),
-           // const SizedBox(width: screenWidth * 0.10, height: screenHeight * 0.08),
-            Spacer(),
+
+
             Container(
+
               alignment: Alignment.center,
               width: screenWidth * .8,
               height: screenHeight * 0.06,
@@ -277,8 +278,8 @@ class _StartAnalysisState extends State<StartAnalysis> {
               Container(
                 color: Colors.white,
                 child: VirtualKeyboard(
-                  height: 200,
-                  width: screenWidth * 0.8,
+                   height: screenHeight*0.234,
+                   width: screenWidth * 0.8,
                   textColor: Colors.black,
                   fontSize: 28,
                   type: VirtualKeyboardType.Alphanumeric,

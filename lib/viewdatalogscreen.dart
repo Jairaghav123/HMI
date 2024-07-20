@@ -45,8 +45,7 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
     return Scaffold(
 
       body: Container(
-        height: screenHeight,
-        width: screenWidth,
+
         color:Colors.blueGrey,
         child: Column(
           children: [
@@ -151,7 +150,7 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
                 ],),
 
 
-                const SizedBox(width:50),
+                const SizedBox(width:20),
 
                 Column(children: [
                   Container(

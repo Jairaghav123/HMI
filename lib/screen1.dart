@@ -135,7 +135,7 @@ class _screen1buttonState extends State<screen1button> {
       height:widget.screenheight,
       width: widget.screenwidth,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(40), // Adjust the value as needed
+        borderRadius: BorderRadius.circular(0), // Adjust the value as needed
       ),
       child: ElevatedButton(
         onPressed: () {

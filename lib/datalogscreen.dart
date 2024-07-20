@@ -63,8 +63,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
 
     return Scaffold(
       body: Container(
-        height: screenHeight,
-        width: screenWidth,
+
         color: Colors.blueGrey,
         child: Column(
           children: [
@@ -132,6 +131,14 @@ class _DataLogScreenState extends State<DataLogScreen> {
                                     selectedAgenttoview = _dataList[index];
                                     setState(() {
                                       _selectedColor = Colors.red;
+                                    });
+                                  },
+
+
+                                  onDoubleTap: (){
+                                    setState(() {
+                                      selectedAgenttoview = null;
+                                      ;
                                     });
                                   },
                                   child: DataLogScreenWidget(
@@ -265,7 +272,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
                       const SizedBox(height: 20),
                     ],
                   ),
-                  SizedBox(width: 40,)
+                  const SizedBox(width: 40,)
                 ],
               )
             else

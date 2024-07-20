@@ -52,8 +52,7 @@ class _ResultScreenState extends State<ResultScreen> {
 
     return Scaffold(
       body: Container(
-        height: screenHeight,
-        width: screenWidth,
+
         color: Colors.blueGrey,
         child: Column(
           children: [

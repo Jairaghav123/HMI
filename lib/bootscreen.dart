@@ -54,8 +54,7 @@ class _BootScreenState extends State<BootScreen> with SingleTickerProviderStateM
 
 
       body:Container(
-        height:screenHeight,
-        width:screenWidth,
+
         color:Colors.blueGrey,
         child:  Center(
           child: Column(
