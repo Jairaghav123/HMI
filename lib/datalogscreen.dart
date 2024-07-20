@@ -54,13 +54,6 @@ class _DataLogScreenState extends State<DataLogScreen> {
     }
   }
 
-  TextStyle textStyleForAllText() {
-    return const TextStyle(fontSize: 33, color: Colors.white);
-  }
-
-  TextStyle textStyleBelowScreen() {
-    return const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white);
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -85,7 +85,7 @@ class _BootScreenState extends State<BootScreen> with SingleTickerProviderStateM
                    Padding(
                      padding: EdgeInsets.all(8.0),
                      child: Text("Copyright © 2024 knemetic solutions. All rights reserved Version 1.0.0 "
-                       ,style: TextStyle(fontSize:20,fontWeight:FontWeight.normal,color:Colors.white),),
+                       ,style: TextStyle(fontSize:33,fontWeight:FontWeight.normal,color:Colors.white),),
                    ),
                  ],
                )),
@@ -104,7 +104,7 @@ class _BootScreenState extends State<BootScreen> with SingleTickerProviderStateM
                      child: AnimatedBuilder(
                        animation: _animation,
                        builder: (context, child) {
-                         return const Text("Booting ... Please wait ",style:TextStyle(fontSize:20,fontWeight:FontWeight.normal,color:Colors.white),) ;
+                         return const Text("Booting ... Please wait ",style:TextStyle(fontSize:33,fontWeight:FontWeight.normal,color:Colors.white),) ;
 
                        },
 
