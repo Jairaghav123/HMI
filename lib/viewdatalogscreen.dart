@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ics_homescreen/Data/app_data.dart';
 import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
 import 'package:flutter_ics_homescreen/resultscreenwidget.dart';
 import 'package:flutter_ics_homescreen/screen1.dart';
@@ -46,7 +45,7 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
 
       body: Container(
 
-        color:Colors.blueGrey,
+        color:backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: screenHeight*0.0185),  //
@@ -158,14 +157,16 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
                     height:screenHeight*.1,
                     width: screenWidth*0.15,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                      borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(
                         onPressed: () {
                           // Action for top camera view button
-                        },
+                        },style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttoncolor),
+                      ),
                         child: Text('Save',style:textStyleForAllText ()),
                       ),
                     ),
@@ -181,14 +182,16 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
                     height:screenHeight*.1,
                     width: screenWidth*0.15,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                      borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(
                         onPressed: () {
                           // Action for top camera view button
-                        },
+                        },style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttoncolor),
+                      ),
                         child:  Text('Print ',style:textStyleForAllText ()
                             ),
                       ),
@@ -202,7 +205,7 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
                     height:screenHeight*.1,
                     width: screenWidth*0.15,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                      borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -210,7 +213,9 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
                         onPressed: () {
                           // Action for top camera view button
                           Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Screen1()));
-                        },
+                        },style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttoncolor),
+                      ),
                         child:  Text('Home ',style:textStyleForAllText ()
                             ),
                       ),

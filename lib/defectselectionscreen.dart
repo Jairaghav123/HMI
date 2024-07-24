@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
-import 'package:flutter_ics_homescreen/screen2.dart';
 import 'package:flutter_ics_homescreen/screensize.dart';
-
-
-import 'package:flutter_ics_homescreen/sliderscreen3.dart';
 import 'package:intl/intl.dart';
 
-import 'color_seeting_button_widget.dart';
 import 'defectselectionscreenwidget.dart';
 
 
-class defectselection extends StatefulWidget {
-  const defectselection({super.key});
+class Defectselection extends StatefulWidget {
+  const Defectselection({super.key});
 
   @override
-  State<defectselection> createState() => _defectselectionState();
+  State<Defectselection> createState() => _DefectselectionState();
 }
 
-class _defectselectionState extends State<defectselection> {
+class _DefectselectionState extends State<Defectselection> {
   @override
 
   Widget build(BuildContext context) {
@@ -27,7 +22,7 @@ class _defectselectionState extends State<defectselection> {
     return Scaffold(
 
       body: Container(
-        color:Colors.blueGrey,
+        color:backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -116,14 +111,16 @@ class _defectselectionState extends State<defectselection> {
                 Container(height:screenHeight*.1,
                     width: screenWidth*0.15,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                      borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                     ),child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ElevatedButton(onPressed: (){
 
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Screen2()));
+                  Navigator.pushNamed(context, "SettingsScreen");
 
-                }, child: Text("Back",style: textStyleForAllText ())),
+                },style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttoncolor),
+                      ), child: Text("Back",style: textStyleForAllText ()),),
                     ))
               ],
             ),

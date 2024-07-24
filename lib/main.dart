@@ -10,7 +10,6 @@ import 'package:flutter_ics_homescreen/screen1.dart';
 import 'package:flutter_ics_homescreen/screen2.dart';
 import 'package:flutter_ics_homescreen/screen3.dart';
 import 'package:flutter_ics_homescreen/screen4.dart';
-import 'package:flutter_ics_homescreen/screensize.dart';
 import 'package:flutter_ics_homescreen/startAnalysisscreen.dart';
 import 'package:flutter_ics_homescreen/topcamera_preview_screen.dart';
 import 'package:flutter_ics_homescreen/tray1analysisscreen.dart';
@@ -28,7 +27,6 @@ import 'datalogscreen.dart';
 
 void main ()
 {
-
 
   runApp(const MyApp());
 
@@ -50,7 +48,7 @@ class MyApp extends StatelessWidget {
         "SettingsScreen" :  (context)=>const Screen2(),
         "Color and light settings-Top Screen" :  (context)=>const Screen3(),
         "Color and light settings-Bottom Screen" :  (context)=>const Screen4(),
-        "Defect Selection Screen" :  (context)=>const defectselection(),
+        "Defect Selection Screen" :  (context)=>const Defectselection(),
         "Top CAM preview Screen" :  (context)=>const TopCameraview(),
         "Bottom CAM preview Screen" :  (context)=>const BottomCameraview(),
         "Start Analysis Screen" :  (context)=>const StartAnalysis(),

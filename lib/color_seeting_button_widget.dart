@@ -24,15 +24,20 @@ class _color_setting_buttonState extends State<color_setting_button> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:widget.screenheight*.25,
-      width: widget.screenwidth*0.18,
+
+      height:widget.screenheight*.19,
+       width: widget.screenwidth*0.19,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30), // Adjust the value as needed
+
+        borderRadius: BorderRadius.circular(0),
+        // Adjust the value as needed
       ),
       child: ElevatedButton(
         onPressed: () {
           // Action for top camera view button
-        },
+        },style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(buttoncolor),
+      ),
         child:  Column(
           mainAxisAlignment:MainAxisAlignment.center,
           children: [

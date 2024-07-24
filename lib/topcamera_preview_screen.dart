@@ -19,7 +19,7 @@ class _TopCameraviewState extends State<TopCameraview> {
     return Scaffold(
 
       body: Container(
-        color:Colors.blueGrey,
+        color:backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -44,7 +44,7 @@ class _TopCameraviewState extends State<TopCameraview> {
 
 
 
-            Spacer(),
+            const Spacer(),
 
             Row(
               mainAxisAlignment:MainAxisAlignment.start,
@@ -55,7 +55,7 @@ class _TopCameraviewState extends State<TopCameraview> {
                   height:screenHeight*.1,
                   width: screenWidth*0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child:   Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -63,7 +63,9 @@ class _TopCameraviewState extends State<TopCameraview> {
                       onPressed: () {
                         // Action for top camera view button
                         //Navigator.pushNamed(context, "Start Analysis Screen");
-                      },
+                      },style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(buttoncolor),
+                    ),
                       child: Text('Capture ',style: textStyleForAllText ()),
                     ),
                   ),
@@ -74,12 +76,15 @@ class _TopCameraviewState extends State<TopCameraview> {
                   child: Container(height:screenHeight*.1,
                       width: screenWidth*0.15,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                        borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                       ),child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: ElevatedButton(onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const Screen1()));
-                  }, child: Text("Back",style:textStyleForAllText())),
+                  }, style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(buttoncolor),
+                        ),
+                            child: Text("Back",style:textStyleForAllText())),
                       )),
                 )
               ],

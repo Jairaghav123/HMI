@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
 import 'package:flutter_ics_homescreen/screensize.dart';
-import 'package:flutter_ics_homescreen/startAnalysisscreen.dart';
-import 'package:flutter_ics_homescreen/tray1analysisscreen.dart';
 import 'package:intl/intl.dart';
 
 
@@ -22,7 +20,7 @@ class _InsertTrayscreenState extends State<InsertTrayscreen> {
     return Scaffold(
 
       body: Container(
-        color:Colors.blueGrey,
+        color:backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -64,12 +62,15 @@ class _InsertTrayscreenState extends State<InsertTrayscreen> {
               height:screenHeight*.165,
               width: screenWidth*0.30,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30), // Adjust the value as needed
+                borderRadius: BorderRadius.circular(0), // Adjust the value as needed
               ),
               child: ElevatedButton(
                 onPressed: () {
                   // Action for top camera view button
                 },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(buttoncolor),
+                ),
                 child:  Column(
                   mainAxisAlignment:MainAxisAlignment.center,
                   children: [
@@ -89,7 +90,7 @@ class _InsertTrayscreenState extends State<InsertTrayscreen> {
                   height:screenHeight*.1,
                   width: screenWidth*0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -97,7 +98,9 @@ class _InsertTrayscreenState extends State<InsertTrayscreen> {
                       onPressed: () {
                         // Action for top camera view button
                         Navigator.pushNamed(context, "Start Analysis Screen");
-                      },
+                      },style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(buttoncolor),
+                    ),
                       child: Text('Back ',style: textStyleForAllText ()),
                     ),
                   ),
@@ -107,7 +110,7 @@ class _InsertTrayscreenState extends State<InsertTrayscreen> {
                   height:screenHeight*.1,
                   width: screenWidth*0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -115,7 +118,9 @@ class _InsertTrayscreenState extends State<InsertTrayscreen> {
                       onPressed: () {
                         // Action for top camera view button
                         Navigator.pushNamed(context, "Tray 1 Analysis Screen");
-                      },
+                      },style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(buttoncolor),
+                    ),
                       child: Text('Next ',style: textStyleForAllText ()),
                     ),
                   ),

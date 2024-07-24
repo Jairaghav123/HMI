@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ics_homescreen/screensize.dart';
-import 'package:flutter_ics_homescreen/tray3analysisscreen.dart';
 import 'package:intl/intl.dart';
 
 import 'Data/variables/variables.dart';
@@ -22,7 +21,7 @@ class _Tray2AnalysisState extends State<Tray2Analysis> {
     return Scaffold(
 
       body: Container(
-        color:Colors.blueGrey,
+        color:backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -93,14 +92,16 @@ class _Tray2AnalysisState extends State<Tray2Analysis> {
                   height:screenHeight*.1,
                   width: screenWidth*0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: ElevatedButton(
                       onPressed: () {
                         // Action for top camera view button
-                      },
+                      },style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(buttoncolor),
+                    ),
                       child: Text('Restart Tray 2',style:textStyleForAllText ()),
                     ),
                   ),
@@ -112,7 +113,7 @@ class _Tray2AnalysisState extends State<Tray2Analysis> {
                   height:screenHeight*.1,
                   width: screenWidth*0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -120,7 +121,9 @@ class _Tray2AnalysisState extends State<Tray2Analysis> {
                       onPressed: () {
                         // Action for top camera view button
                         Navigator.pushNamed(context,"Tray 3 Analysis Screen");
-                      },
+                      },style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(buttoncolor),
+                    ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -137,7 +140,7 @@ class _Tray2AnalysisState extends State<Tray2Analysis> {
                   height:screenHeight*.1,
                   width: screenWidth*0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius: BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -146,7 +149,9 @@ class _Tray2AnalysisState extends State<Tray2Analysis> {
                         // Action for top camera view button
 
                         Navigator.pushNamed(context,"Tray 1 Analysis Screen" );
-                      },
+                      },style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(buttoncolor),
+                    ),
                       child:  Text('Back ',style: textStyleForAllText ()),
                     ),
                   ),
@@ -159,7 +164,7 @@ class _Tray2AnalysisState extends State<Tray2Analysis> {
 
               //color:Colors.wh,
               decoration:BoxDecoration(
-                  border: Border.all(color:Colors.blueGrey)
+                  border: Border.all(color:backgroundcolor)
 
               ),
               width: screenWidth*.8,

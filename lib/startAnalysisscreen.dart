@@ -21,8 +21,10 @@ class _StartAnalysisState extends State<StartAnalysis> {
   TextEditingController noofBagsController = TextEditingController();
   TextEditingController lotWeightController = TextEditingController();
   TextEditingController typeAndGradeController = TextEditingController();
-  TextEditingController analysisSampleWeightController = TextEditingController();
-  TextEditingController analysisSampleWeight2Controller = TextEditingController();
+  TextEditingController analysisSampleWeightController =
+      TextEditingController();
+  TextEditingController analysisSampleWeight2Controller =
+      TextEditingController();
   TextEditingController lorrySampleWeightController = TextEditingController();
   TextEditingController moistureLevelController = TextEditingController();
 
@@ -49,7 +51,7 @@ class _StartAnalysisState extends State<StartAnalysis> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.blueGrey,
+        color: backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -73,29 +75,30 @@ class _StartAnalysisState extends State<StartAnalysis> {
                   ),
                 ),
                 SizedBox(
-
                   width: screenWidth * 0.15,
                   child: Column(
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.calendar_month_rounded,color:Colors.white,size:datetimeiconsize,),
-                          Text(
-                            DateFormat('EEEE dd MMM')
-                                .format(DateTime.now())
-                                .toString(),
-                            style: datetimefont()
+                          const Icon(
+                            Icons.calendar_month_rounded,
+                            color: Colors.white,
+                            size: datetimeiconsize,
                           ),
+                          Text(
+                              DateFormat('EEEE dd MMM')
+                                  .format(DateTime.now())
+                                  .toString(),
+                              style: datetimefont()),
                         ],
                       ),
                       Row(
                         children: [
                           Text(
-                            DateFormat('            HH:mm:ss')
-                                .format(DateTime.now())
-                                .toString(),
-                            style: datetimefont()
-                          ),
+                              DateFormat('            HH:mm:ss')
+                                  .format(DateTime.now())
+                                  .toString(),
+                              style: datetimefont()),
                         ],
                       ),
                     ],
@@ -103,7 +106,9 @@ class _StartAnalysisState extends State<StartAnalysis> {
                 ),
               ],
             ),
-            const SizedBox(height: 50,),
+            const SizedBox(
+              height: 50,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -201,18 +206,15 @@ class _StartAnalysisState extends State<StartAnalysis> {
                 ),
               ],
             ),
-
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-
-                  height:screenHeight*.1,
-                  width: screenWidth*0.15,
+                  height: screenHeight * .1,
+                  width: screenWidth * 0.15,
                   decoration: BoxDecoration(
-
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius:
+                        BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -221,33 +223,40 @@ class _StartAnalysisState extends State<StartAnalysis> {
                         _saveData();
                         setState(() {});
                       },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttoncolor),
+                      ),
                       child: Text("Save", style: textStyleForAllText()),
                     ),
                   ),
                 ),
                 Container(
-
-                  height:screenHeight*.1,
-                  width: screenWidth*0.15,
+                  height: screenHeight * .1,
+                  width: screenWidth * 0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius:
+                        BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, "Insert Tray pop up Screen");
+                        Navigator.pushNamed(
+                            context, "Insert Tray pop up Screen");
                       },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttoncolor),
+                      ),
                       child: Text("Next", style: textStyleForAllText()),
                     ),
                   ),
                 ),
                 Container(
-
-                  height:screenHeight*.1,
-                  width: screenWidth*0.15,
+                  height: screenHeight * .1,
+                  width: screenWidth * 0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20), // Adjust the value as needed
+                    borderRadius:
+                        BorderRadius.circular(0), // Adjust the value as needed
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
@@ -255,16 +264,16 @@ class _StartAnalysisState extends State<StartAnalysis> {
                       onPressed: () {
                         Navigator.pushNamed(context, "HomeScreen");
                       },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttoncolor),
+                      ),
                       child: Text("Back", style: textStyleForAllText()),
                     ),
                   ),
                 )
               ],
             ),
-
-
             Container(
-
               alignment: Alignment.center,
               width: screenWidth * .8,
               height: screenHeight * 0.06,
@@ -278,10 +287,10 @@ class _StartAnalysisState extends State<StartAnalysis> {
               Container(
                 color: Colors.white,
                 child: VirtualKeyboard(
-                   height: screenHeight*0.234,
-                   width: screenWidth * 0.8,
+                  height: screenHeight * 0.331,
+                  width: screenWidth * 0.8,
                   textColor: Colors.black,
-                  fontSize: 28,
+                  fontSize: 33,
                   type: VirtualKeyboardType.Alphanumeric,
                   onKeyPress: _onKeyPress,
                 ),
@@ -309,8 +318,8 @@ class _StartAnalysisState extends State<StartAnalysis> {
         switch (key.action) {
           case VirtualKeyboardKeyAction.Backspace:
             if (currentController!.text.isNotEmpty) {
-              currentController!.text = currentController!.text.substring(
-                  0, currentController!.text.length - 1);
+              currentController!.text = currentController!.text
+                  .substring(0, currentController!.text.length - 1);
             }
             break;
           case VirtualKeyboardKeyAction.Return:
@@ -325,15 +334,6 @@ class _StartAnalysisState extends State<StartAnalysis> {
       }
     });
   }
-
-
-
-
-
-
-
-
-
 
   void _saveData() async {
     final prefs = await SharedPreferences.getInstance();
@@ -350,23 +350,22 @@ class _StartAnalysisState extends State<StartAnalysis> {
       'analysisSampleWeight2': analysisSampleWeight2Controller.text,
       'lorrySampleWeight': lorrySampleWeightController.text,
       'moistureLevel': moistureLevelController.text,
-      'AnalysisDate':DateTime.now().toString(),
-      'MC':"20 %",
-      'PB':"34 %",
-      'AAA':"21 %",
-      'AA':"49 %",
-      'A':"16 %",
-      'B':"78 %",
-      'C':"67 %",
-      'BB':"12 %",
-      'BL':"19 %",
-      'BERRY':"67 %",
-      'BITS':"56 %",
-      'HUSK/Stone':"34 %",
+      'AnalysisDate': DateTime.now().toString(),
+      'MC': "20 %",
+      'PB': "34 %",
+      'AAA': "21 %",
+      'AA': "49 %",
+      'A': "16 %",
+      'B': "78 %",
+      'C': "67 %",
+      'BB': "12 %",
+      'BL': "19 %",
+      'BERRY': "67 %",
+      'BITS': "56 %",
+      'HUSK/Stone': "34 %",
     };
 
     agentData.add(json.encode(newAgent));
     await prefs.setStringList('agents', agentData);
-
   }
 }

@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_ics_homescreen/resultscreenwidget.dart';
 import 'package:flutter_ics_homescreen/screen1.dart';
-import 'package:flutter_ics_homescreen/screen2.dart';
+
 import 'package:flutter_ics_homescreen/screensize.dart';
 import 'package:flutter_ics_homescreen/viewdatalogscreen.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
+//import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'Data/variables/variables.dart';
 import 'datalogscreenwidget.dart';
 
@@ -64,7 +63,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
     return Scaffold(
       body: Container(
 
-        color: Colors.blueGrey,
+        color: backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -173,7 +172,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
                         height:screenHeight*.1,
                         width: screenWidth*0.15,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -184,6 +183,9 @@ class _DataLogScreenState extends State<DataLogScreen> {
                                 MaterialPageRoute(builder: (BuildContext context) => const ViewDataLogScreen()),
                               );
                             },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(buttoncolor),
+                            ),
                             child: Text('View', style: textStyleForAllText()),
                           ),
                         ),
@@ -193,14 +195,16 @@ class _DataLogScreenState extends State<DataLogScreen> {
                         height:screenHeight*.1,
                         width: screenWidth*0.15,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: ElevatedButton(
                             onPressed: () {
                               // Action for print button
-                            },
+                            },style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(buttoncolor),
+                          ),
                             child: Text('Print', style: textStyleForAllText()),
                           ),
                         ),
@@ -210,7 +214,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
                         height:screenHeight*.1,
                         width: screenWidth*0.15,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -218,7 +222,9 @@ class _DataLogScreenState extends State<DataLogScreen> {
                             onPressed: () {
                               // Action for email button
 
-                            },
+                            },style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(buttoncolor),
+                          ),
                             child: Text('Email', style: textStyleForAllText()),
                           ),
                         ),
@@ -228,7 +234,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
                         height:screenHeight*.1,
                         width: screenWidth*0.15,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -245,6 +251,9 @@ class _DataLogScreenState extends State<DataLogScreen> {
                               });
 
                             },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(buttoncolor),
+                            ),
                             child: Text('Delete', style: textStyleForAllText()),
                           ),
                         ),
@@ -254,7 +263,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
                         height:screenHeight*.1,
                         width: screenWidth*0.15,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(0),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
@@ -265,6 +274,9 @@ class _DataLogScreenState extends State<DataLogScreen> {
                                 MaterialPageRoute(builder: (BuildContext context) => const Screen1()),
                               );
                             },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(buttoncolor),
+                            ),
                             child: Text('Home', style: textStyleForAllText()),
                           ),
                         ),
@@ -279,7 +291,7 @@ class _DataLogScreenState extends State<DataLogScreen> {
               const SizedBox(height: 10, width: 10),
             const Spacer(),
             Container(
-              decoration: BoxDecoration(border: Border.all(color: Colors.blueGrey)),
+              decoration: BoxDecoration(border: Border.all(color: backgroundcolor)),
               width: screenWidth * .8,
               height: screenHeight * 0.1,
               child: Row(

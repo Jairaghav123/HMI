@@ -22,7 +22,7 @@ class ResultScreenWidget extends StatelessWidget {
 
       Row(
         children: [
-          Container(alignment:Alignment.center,color:Colors.blue ,width:screenWidth*0.25,height:screenHeight*0.05,child: Text(innertext,style:textStyleForAllText ()),),
+          Container(alignment:Alignment.center,color:buttoncolor ,width:screenWidth*0.25,height:screenHeight*0.05,child: Text(innertext,style:textStyleForAllText ()),),
            Text("          $percentagetext",style:textStyleForAllText ()),
         ],
       ),

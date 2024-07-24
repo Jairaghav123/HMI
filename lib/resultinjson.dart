@@ -28,7 +28,7 @@ class _JsonDataWidgetState extends State<JsonDataWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('JSON Data'),
+        title: const Text('JSON Data'),
       ),
       body: jsonData.isEmpty
           ? Center(child: CircularProgressIndicator())

@@ -11,7 +11,8 @@ const double datetimefontsize=20;
 const double textbelowscreen=25 ;
 const double iconbelowscreen=50 ;
 Map<String, String>? selectedAgenttoview;
-
+ Color buttoncolor=Colors.blue.withOpacity(0.6) ;
+ Color backgroundcolor=Colors.blueGrey;
 
 TextStyle  textStyleBelowScreen ()
 {
@@ -25,7 +26,7 @@ TextStyle  textStyleForAllText ()
 {
 
   return
-    const TextStyle(fontSize: 33,color:Colors.black);
+    const TextStyle(fontSize: 32,color:Colors.black);
 
 }
 

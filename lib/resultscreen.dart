@@ -1,24 +1,14 @@
-
-
-
-
-
-
-
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
 import 'package:flutter_ics_homescreen/resultscreenwidget.dart';
 import 'package:flutter_ics_homescreen/screen1.dart';
-import 'package:flutter_ics_homescreen/screensize.dart';
 import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
-
+import 'package:flutter_ics_homescreen/screensize.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({super.key});
@@ -40,9 +30,9 @@ class _ResultScreenState extends State<ResultScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> agentData = prefs.getStringList('agents') ?? [];
     setState(() {
-      _dataList =
-          agentData.map((data) => Map<String, String>.from(jsonDecode(data)))
-              .toList();
+      _dataList = agentData
+          .map((data) => Map<String, String>.from(jsonDecode(data)))
+          .toList();
     });
   }
 
@@ -52,8 +42,7 @@ class _ResultScreenState extends State<ResultScreen> {
 
     return Scaffold(
       body: Container(
-
-        color: Colors.blueGrey,
+        color: backgroundcolor,
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -61,33 +50,31 @@ class _ResultScreenState extends State<ResultScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
-                    width: screenWidth * 0.15,
-                    color: Colors.white,
-                    child: Image.asset('asset/mylogo.png')),
-                // Replace 'assets/logo.png' with your logo
+                  width: screenWidth * 0.15,
+                  color: Colors.white,
+                  child: Image.asset('asset/mylogo.png'),
+                ),
                 Container(
                   alignment: Alignment.center,
                   width: screenWidth * 0.60,
                   child: const Text(
                     "Knemetic solutions",
-                    style: TextStyle(fontSize: 40,
+                    style: TextStyle(
+                        fontSize: 40,
                         fontWeight: FontWeight.normal,
                         color: Colors.white),
                   ),
                 ),
                 SizedBox(
-
                   width: screenWidth * 0.15,
                   child: Column(
                     children: [
                       Row(
                         children: [
                           const Icon(Icons.calendar_month_rounded,
-                              color: Colors.white,size:datetimeiconsize,),
+                              color: Colors.white, size: datetimeiconsize),
                           Text(
-                            DateFormat('EEEE dd MMM')
-                                .format(DateTime.now())
-                                .toString(),
+                            DateFormat('EEEE dd MMM').format(DateTime.now()),
                             style: datetimefont(),
                           ),
                         ],
@@ -95,8 +82,7 @@ class _ResultScreenState extends State<ResultScreen> {
                       Row(
                         children: [
                           Text(
-                            DateFormat('            HH:mm:ss').format(
-                                DateTime.now()).toString(),
+                            DateFormat('HH:mm:ss').format(DateTime.now()),
                             style: datetimefont(),
                           ),
                         ],
@@ -107,266 +93,11 @@ class _ResultScreenState extends State<ResultScreen> {
               ],
             ),
             const SizedBox(height: 50),
-            if (isDataAvailable)
-              Row(
-                children: [
-                  const SizedBox(width: 30),
-                  Container(
-                    alignment: Alignment.center,
-                    width: screenWidth * 0.30,
-                    height: screenHeight * .05,
-                    color: Colors.blue,
-                    child: Text(
-                      _dataList[_dataList.length - 1]['name'] ?? "null",
-                      style: textStyleForAllText(),
-                    ),
-                  ),
-                  const SizedBox(width: screenWidth * 0.05),
-                  Container(
-                    alignment: Alignment.center,
-                    width: screenWidth * 0.30,
-                    height: screenHeight * .05,
-                    color: Colors.blue,
-                    child: Text(
-                      _dataList[_dataList.length - 1]['AnalysisDate'] ?? "null",
-                      style: textStyleForAllText(),
-                    ),
-                  ),
-                ],
-              )
-            else
-              Container(
-                alignment: Alignment.center,
-                width: screenWidth,
-                height: screenHeight * .05,
-                color: Colors.blue,
-                child: Text(
-                  'No data available',
-                  style: textStyleForAllText(),
-                ),
-              ),
-            const SizedBox(height: 40),
-            if (isDataAvailable)
-              Row(
-                children: [
-                  Column(
-                    children: [
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "MOISTURE",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['MC'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "PEA BERRY",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['PB'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "SIZE-AAA",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['AAA'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "SIZE-AA",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['AA'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "SIZE-A",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['A'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "SIZE-B",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['B'] ?? "null"),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                  const SizedBox(width: screenWidth * 0.10),
-                  Column(
-                    children: [
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "SIZE-C",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['C'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "BLACK & BROWN",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['BB'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "BLEACHES",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['BL'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "BERRY BORES",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['BERRY'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "BITS & BROKEN",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['BITS'] ?? "null"),
-                      const SizedBox(height: 10),
-                      ResultScreenWidget(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
-                          innertext: "HUSK/Stone",
-                          percentagetext: _dataList[_dataList.length -
-                              1]['HUSK/Stone'] ?? "null"),
-                      const SizedBox(height: 10),
-                    ],
-                  ),
-                  const SizedBox(width: 50),
-                  Column(
-                    children: [
-                      Container(
-                        // height: screenHeight * .06,
-                        // width: screenWidth * 0.10,
-
-                        height:screenHeight*.1,
-                        width: screenWidth*0.15,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              20), // Adjust the value as needed
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // Action for save button
-
-                              saveAsPdf();
-                              setState(() {
-
-                              });
-                            },
-                            child: Text('Save', style: textStyleForAllText()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Container(
-                        // height: screenHeight * .06,
-                        // width: screenWidth * 0.10,
-                        height:screenHeight*.1,
-                        width: screenWidth*0.15,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              20), // Adjust the value as needed
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // Action for discard button
-                            },
-                            child: Text('Discard', style: textStyleForAllText()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Container(
-                        // height: screenHeight * .06,
-                        // width: screenWidth * 0.10,
-                        height:screenHeight*.1,
-                        width: screenWidth*0.15,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              20), // Adjust the value as needed
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // Action for print button
-                            },
-                            child: Text('Print', style: textStyleForAllText()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Container(
-                        // height: screenHeight * .06,
-                        // width: screenWidth * 0.10,
-                        height:screenHeight*.1,
-                        width: screenWidth*0.15,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              20), // Adjust the value as needed
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: ElevatedButton(
-                            onPressed: () {
-                              // Action for home button
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (
-                                      BuildContext context) => const Screen1()));
-                            },
-                            child: Text('Home', style: textStyleForAllText()),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
-                ],
-              )
-            else
-              Container(
-                alignment: Alignment.center,
-                width: screenWidth,
-                height: screenHeight * .1,
-                child: Text(
-                  'No data available to display results.',
-                  style: textStyleForAllText(),
-                ),
-              ),
+            isDataAvailable
+                ? buildDataAvailableContent()
+                : buildNoDataContent(),
             const Spacer(),
-            Container(
-              //color:Colors.wh,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.blueGrey)),
-              width: screenWidth * .8,
-              height: screenHeight * 0.1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.analytics_outlined, color: Colors.white,
-                      size: iconbelowscreen),
-                  Text(
-                    'Analysis Completed ',
-                    style: textStyleBelowScreen(),
-                  )
-                ],
-              ),
-            ),
+            buildFooter(),
             const SizedBox(height: 20),
           ],
         ),
@@ -374,8 +105,270 @@ class _ResultScreenState extends State<ResultScreen> {
     );
   }
 
+  Widget buildDataAvailableContent() {
+    if (_dataList.isEmpty) {
+      return buildNoDataContent();
+    }
+    final lastData = _dataList.last;
+
+    return Column(
+      children: [
+        Row(
+          children: [
+            const SizedBox(width: 30),
+            buildDataContainer(lastData['name'] ?? "null", screenWidth * 0.30),
+            const SizedBox(width: screenWidth * 0.05),
+            buildDataContainer(
+                lastData['AnalysisDate'] ?? "null", screenWidth * 0.30),
+          ],
+        ),
+        const SizedBox(height: 40),
+        Row(
+          children: [
+            Column(
+              children: [
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "MOISTURE",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['MC'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "PEA BERRY",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['PB'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "SIZE-AAA",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['AAA'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "SIZE-AA",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['AA'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "SIZE-A",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['A'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "SIZE-B",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['B'] ?? "null"),
+                const SizedBox(height: 10),
+              ],
+            ),
+            const SizedBox(width: screenWidth * 0.10),
+            Column(
+              children: [
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "SIZE-C",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['C'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "BLACK & BROWN",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['BB'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "BLEACHES",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['BL'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "BERRY BORES",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['BERRY'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "BITS & BROKEN",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['BITS'] ?? "null"),
+                const SizedBox(height: 10),
+                ResultScreenWidget(
+                    screenWidth: screenWidth,
+                    screenHeight: screenHeight,
+                    innertext: "HUSK/Stone",
+                    percentagetext: _dataList[_dataList.length -
+                        1]['HUSK/Stone'] ?? "null"),
+                const SizedBox(height: 10),
+              ],
+            ),
+            const SizedBox(width: 50),
+            buildActionButtons(),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget buildNoDataContent() {
+    return Column(
+      children: [
+        const SizedBox(height: screenHeight * 0.20),
+        Container(
+          alignment: Alignment.center,
+          width: screenWidth,
+          height: screenHeight * .1,
+          child: Text(
+            'No data available to display results.',
+            style: textStyleForAllText(),
+          ),
+        ),
+        const SizedBox(height: 160),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            buildButton("Back", "Tray 3 Analysis Screen"),
+            buildButton("Home", "HomeScreen"),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget buildDataContainer(String text, double width) {
+    return Container(
+      alignment: Alignment.center,
+      width: width,
+      height: screenHeight * .05,
+      color: Colors.blue,
+      child: Text(
+        text,
+        style: textStyleForAllText(),
+      ),
+    );
+  }
+
+  // List<Widget> buildResultScreenWidgets(
+  //     List<String> labels, Map<String, String> data) {
+  //   return labels.map((label) {
+  //     return Padding(
+  //       padding: const EdgeInsets.only(bottom: 10),
+  //       child: ResultScreenWidget(
+  //         screenWidth: screenWidth,
+  //         screenHeight: screenHeight,
+  //         innertext: label,
+  //         percentagetext: data[label] ?? "null",
+  //       ),
+  //     );
+  //   }).toList();
+  // }
+
+  Widget buildActionButtons() {
+    return Column(
+      children: [
+        buildActionButton("Save", saveAsPdf),
+        buildActionButton("Discard", () {}),
+        buildActionButton("Print", () {}),
+        buildActionButton("Home", () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const Screen1()));
+        }),
+      ],
+    );
+  }
+
+  Widget buildActionButton(String text, VoidCallback onPressed) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Container(
+        height: screenHeight * .1,
+        width: screenWidth * 0.15,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ElevatedButton(
+            onPressed: onPressed,
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(buttoncolor),
+            ),
+            child: Text(text, style: textStyleForAllText()),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildButton(String text, String routeName) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: Container(
+        height: screenHeight * .1,
+        width: screenWidth * 0.15,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, routeName);
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(buttoncolor),
+            ),
+            child: Text(text, style: textStyleForAllText()),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildFooter() {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: backgroundcolor),
+      ),
+      width: screenWidth * .8,
+      height: screenHeight * 0.1,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.analytics_outlined,
+              color: Colors.white, size: iconbelowscreen),
+          Text(
+            'Analysis Completed ',
+            style: textStyleBelowScreen(),
+          ),
+        ],
+      ),
+    );
+  }
+
   void saveAsPdf() async {
+    if (_dataList.isEmpty) return;
+
     final pdf = pw.Document();
+    final lastData = _dataList.last;
 
     pw.TableRow buildRow(String label, String value) {
       return pw.TableRow(
@@ -405,33 +398,26 @@ class _ResultScreenState extends State<ResultScreen> {
         return pw.Column(
           mainAxisAlignment: pw.MainAxisAlignment.start,
           children: [
-            pw.Text("Agent Name :${_dataList[_dataList.length - 1]['name']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Agent Address:${_dataList[_dataList.length - 1]['address']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Lorry Number:${_dataList[_dataList.length - 1]['lorryNumber']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Number of Bags:${_dataList[_dataList.length - 1]['noofBags']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Lot Weight:${_dataList[_dataList.length - 1]['lotWeight']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Type and Grade:${_dataList[_dataList.length - 1]['typeAndGrade']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Analysis Sample Weight:${_dataList[_dataList.length - 1]['analysisSampleWeight']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Analysis Sample Weight 2:${_dataList[_dataList.length - 1]['analysisSampleWeight2']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Lorry Sample Weight:${_dataList[_dataList.length - 1]['lorrySampleWeight']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Moisture Level:${_dataList[_dataList.length - 1]['moistureLevel']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.Text("Analysis Date:${_dataList[_dataList.length - 1]['AnalysisDate']}", style: const pw.TextStyle(fontSize: 10)),
-            pw.SizedBox(height: 20),
+            pw.Text("Agent Name :${lastData['name']}",
+                style: const pw.TextStyle(fontSize: 10)),
+            pw.Text("Analysis Date:${lastData['AnalysisDate']}",
+                style: const pw.TextStyle(fontSize: 10)),
+            pw.Text(" ", style: const pw.TextStyle(fontSize: 10)),
             pw.Table(
               border: pw.TableBorder.all(color: PdfColors.black, width: 1),
               children: [
-                buildRow("MC", "${_dataList[_dataList.length - 1]['MC']}"),
-                buildRow("PB", "${_dataList[_dataList.length - 1]['PB']}"),
-                buildRow("AAA", "${_dataList[_dataList.length - 1]['AAA']}"),
-                buildRow("AA", "${_dataList[_dataList.length - 1]['AA']}"),
-                buildRow("A", "${_dataList[_dataList.length - 1]['A']}"),
-                buildRow("B", "${_dataList[_dataList.length - 1]['B']}"),
-                buildRow("C", "${_dataList[_dataList.length - 1]['C']}"),
-                buildRow("BB", "${_dataList[_dataList.length - 1]['BB']}"),
-                buildRow("BL", "${_dataList[_dataList.length - 1]['BL']}"),
-                buildRow("BERRY", "${_dataList[_dataList.length - 1]['BERRY']}"),
-                buildRow("BITS", "${_dataList[_dataList.length - 1]['BITS']}"),
-                buildRow("HUSK/Stone", "${_dataList[_dataList.length - 1]['HUSK/Stone']}"),
+                buildRow("MOISTURE", lastData['MC'] ?? "null"),
+                buildRow("PEA BERRY", lastData['PB'] ?? "null"),
+                buildRow("SIZE-AAA", lastData['AAA'] ?? "null"),
+                buildRow("SIZE-AA", lastData['AA'] ?? "null"),
+                buildRow("SIZE-A", lastData['A'] ?? "null"),
+                buildRow("SIZE-B", lastData['B'] ?? "null"),
+                buildRow("SIZE-C", lastData['C'] ?? "null"),
+                buildRow("BLACK & BROWN", lastData['BB'] ?? "null"),
+                buildRow("BLEACHES", lastData['BL'] ?? "null"),
+                buildRow("BERRY BORES", lastData['BERRY'] ?? "null"),
+                buildRow("BITS & BROKEN", lastData['BITS'] ?? "null"),
+                buildRow("HUSK/Stone", lastData['HUSK/Stone'] ?? "null"),
               ],
             ),
           ],
@@ -439,13 +425,11 @@ class _ResultScreenState extends State<ResultScreen> {
       },
     ));
 
-    final myfile = File("myfile.pdf");
-    await myfile.writeAsBytes(await pdf.save());
+    Directory appDocDirectory = Directory('/storage/emulated/0/Documents');
+    Directory directory =
+        await Directory('${appDocDirectory.path}/pdfs').create(recursive: true);
+
+    final file = File("${directory.path}/${lastData['name']}_Report.pdf");
+    await file.writeAsBytes(await pdf.save());
   }
-
 }
-
-
-
-
-
