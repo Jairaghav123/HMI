@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
@@ -27,6 +28,7 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
     // TODO: implement initState
     super.initState();
     _loadData();
+    _openPdfWithXdg('/home/jai/Documents/local_flutter_apps/flutter_ics_homescreen/pdfs/${selectedAgenttoview?['name']}_Report.pdf');
 
   }
 
@@ -260,4 +262,22 @@ class _ViewDataLogScreenState extends State<ViewDataLogScreen> {
   }
 
 
+}
+
+void _openPdfWithXdg(String filePath) {
+  final file = File(filePath);
+
+  if (!file.existsSync()) {
+    print('File does not exist at $filePath');
+    return;
+  }
+
+  // Execute xdg-open command
+  Process.run('xdg-open', [filePath]).then((result) {
+    if (result.exitCode == 0) {
+      print('File opened successfully');
+    } else {
+      print('Error opening file: ${result.stderr}');
+    }
+  });
 }

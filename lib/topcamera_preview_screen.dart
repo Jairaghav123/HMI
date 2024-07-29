@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ics_homescreen/screen1.dart';
 import 'package:flutter_ics_homescreen/screensize.dart';
@@ -60,7 +62,16 @@ class _TopCameraviewState extends State<TopCameraview> {
                   child:   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
+
+
+                        var process = await Process.start('bash', ['asset/Deliverable_1_Prediction_Shell_Script/Yolov8_Inference_Shell.sh']);
+                        process.stdout.transform(SystemEncoding().decoder).forEach(print);
+
+                        process.stderr.transform(SystemEncoding().decoder).forEach(print);
+
+                        await process.exitCode;
+
                         // Action for top camera view button
                         //Navigator.pushNamed(context, "Start Analysis Screen");
                       },style: ButtonStyle(

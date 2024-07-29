@@ -133,7 +133,7 @@ class _Tray1AnalysisState extends State<Tray1Analysis> {
                         process.stderr.transform(SystemEncoding().decoder).forEach(print);
 
                         await process.exitCode;
-                        Future.delayed(Duration(seconds: 5));
+                        Future.delayed(const Duration(seconds: 5));
                         Navigator.pushNamed(context, "Tray 2 Analysis Screen" );
                       },style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(buttoncolor),

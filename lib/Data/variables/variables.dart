@@ -10,6 +10,11 @@ const double datetimeiconsize=50 ;
 const double datetimefontsize=20;
 const double textbelowscreen=25 ;
 const double iconbelowscreen=50 ;
+////////for usb
+
+
+
+//////////////////////
 Map<String, String>? selectedAgenttoview;
  Color buttoncolor=Colors.blue.withOpacity(0.6) ;
  Color backgroundcolor=Colors.blueGrey;

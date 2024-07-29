@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_ics_homescreen/Data/variables/variables.dart';
 import 'package:flutter_ics_homescreen/resultscreenwidget.dart';
@@ -264,20 +265,7 @@ class _ResultScreenState extends State<ResultScreen> {
     );
   }
 
-  // List<Widget> buildResultScreenWidgets(
-  //     List<String> labels, Map<String, String> data) {
-  //   return labels.map((label) {
-  //     return Padding(
-  //       padding: const EdgeInsets.only(bottom: 10),
-  //       child: ResultScreenWidget(
-  //         screenWidth: screenWidth,
-  //         screenHeight: screenHeight,
-  //         innertext: label,
-  //         percentagetext: data[label] ?? "null",
-  //       ),
-  //     );
-  //   }).toList();
-  // }
+
 
   Widget buildActionButtons() {
     return Column(
@@ -425,7 +413,7 @@ class _ResultScreenState extends State<ResultScreen> {
       },
     ));
 
-    Directory appDocDirectory = Directory('/storage/emulated/0/Documents');
+    Directory appDocDirectory = Directory('/home/jai/Documents/local_flutter_apps/flutter_ics_homescreen');
     Directory directory =
         await Directory('${appDocDirectory.path}/pdfs').create(recursive: true);
 
@@ -433,3 +421,6 @@ class _ResultScreenState extends State<ResultScreen> {
     await file.writeAsBytes(await pdf.save());
   }
 }
+
+
+

@@ -21,8 +21,7 @@ class _StartAnalysisState extends State<StartAnalysis> {
   TextEditingController noofBagsController = TextEditingController();
   TextEditingController lotWeightController = TextEditingController();
   TextEditingController typeAndGradeController = TextEditingController();
-  TextEditingController analysisSampleWeightController =
-      TextEditingController();
+  TextEditingController analysisSampleWeightController = TextEditingController();
   TextEditingController analysisSampleWeight2Controller =
       TextEditingController();
   TextEditingController lorrySampleWeightController = TextEditingController();
